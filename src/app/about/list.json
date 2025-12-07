@@ -1,5 +1,5 @@
 {
-	"title": "关于本站",
-	"description": "一个基于 Github 的现代化博客系统",
-	"content": "📦网站基于 Github 仓库完全存储，所有内容版本可控\n\n🚀无后端，无 serverless function，纯静态站点\n\n✏️文章通过可视化 UI 直接编辑并提交到 Github 仓库\n\n🔑所有用户都可以编辑，提交需要 Owner 的 Private Key\n\n## 技术栈\n\n- Next.js\n- React\n- TypeScript\n- Tailwind CSS\n- Motion\n- Github API"
+	"title": "关于我",
+	"description": "优雅的略带神经病性质的infj",
+	"content": "我从山中来，要往海边去。\n\n求学时间线：\n\n- 2010 - 2016：山沟小学（已无）\n- 2016 - 2019：宣化镇初级中学\n- 2019 - 2022：登封市外国语高级中学（开心）\n- 2022 - 至 今：武汉大学，遥感科学与技术专业\n\n兴趣爱好：\n\n- 活着\n\n联系方式：\n\n- 邮箱：dijkstra-jhd@whu.edu.cn\n\n欢迎找我玩！"
 }

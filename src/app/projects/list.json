@@ -2,8 +2,8 @@
 	{
 		"name": "Mr.jia's todo",
 		"year": 2025,
-		"image": "blob:https://dijkstra-blog-eta.vercel.app/c5d7ef99-8d13-4cdf-b58d-229d636638a0",
-		"url": "todo.dijkstra-jhd.cn",
+		"image": "/images/project/6982340dbd5bd8db.webp",
+		"url": "https://todo.dijkstra-jhd.cn/",
 		"description": "贾想在本科阶段在WHU做的100件事！",
 		"tags": [
 			"Todo",

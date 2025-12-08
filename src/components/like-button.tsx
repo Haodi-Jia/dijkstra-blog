@@ -14,7 +14,7 @@ type LikeButtonProps = {
 
 const ENDPOINT = 'https://blog-liker.yysuni1001.workers.dev/api/like'
 
-export default function LikeButton({ slug = 'yysuni', delay, className }: LikeButtonProps) {
+export default function LikeButton({ slug = 'dijkstra', delay, className }: LikeButtonProps) {
 	const [liked, setLiked] = useState(false)
 	const [show, setShow] = useState(false)
 	const [justLiked, setJustLiked] = useState(false)

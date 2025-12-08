@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"title": "My-Blog",
+		"title": "Jia-Blog",
 		"description": "Dijkstra 的个人博客，记录日常。",
 		"username": "Dijkstra"
 	},
@@ -30,9 +30,13 @@
 		{
 			"id": "a46372ff45bc5524",
 			"url": "/images/art/a46372ff45bc5524.jpg"
+		},
+		{
+			"id": "jhd",
+			"url": "/images/art/jhd.webp"
 		}
 	],
-	"currentArtImageId": "a46372ff45bc5524",
+	"currentArtImageId": "jhd",
 	"backgroundImages": [
 		{
 			"id": "",

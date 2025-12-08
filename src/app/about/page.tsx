@@ -161,7 +161,7 @@ export default function Page() {
 							<GithubSVG />
 						</motion.a>
 
-						<LikeButton slug='open-source' delay={0} />
+						<LikeButton slug='jhd-source' delay={0} />
 					</div>
 				</div>
 			</div>

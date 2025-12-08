@@ -1,23 +1,58 @@
 [
 	{
+		"name": "侯依林",
+		"avatar": "/images/blogger/hyl.webp",
+		"url": "https://www.douyin.com/user/MS4wLjABAAAAG2IAXy0fBQEcz6102FoV71WoJ2eWn_OySbyQbJVIhslpOQcJlQHE2W8sknlF9EGt?from_tab_name=main",
+		"description": "中国政法大学本科，目前正在考研，111",
+		"stars": 1
+	},
+	{
+		"name": "郭明阳",
+		"avatar": "/images/blogger/gmy.webp",
+		"url": "https://www.douyin.com/user/MS4wLjABAAAA_uJ1KLaJBb7600jm6QGENtRaBkqcRf-WVxCJ1J3ZLrY?from_tab_name=main",
+		"description": "长安大学本科生，现在上海实习，不打算读书了。",
+		"stars": 1
+	},
+	{
+		"name": "刘铠铭",
+		"avatar": "/images/blogger/lkm.webp",
+		"url": "https://www.douyin.com/user/MS4wLjABAAAATXqrdOb1eOslwTKZcD0l1zbbDvlJS_QfXn2m8aK84g8?from_tab_name=main",
+		"description": "中国药科大学本科，浙大直博，骚包👇男",
+		"stars": 1
+	},
+	{
 		"name": "Akinokoe",
-		"avatar": "https://i1.hdslb.com/bfs/face/5da869c71ba65e598f296b5ad2c10af52aea5392.jpg",
+		"avatar": "/images/blogger/akinokoe.webp",
 		"url": "https://space.bilibili.com/103118875?spm_id_from=333.1387.follow.user_card.click",
 		"description": "每次更新必看的AI大模型周报，了解最新的AI动态，而且up声音好听哈哈哈，讲解内容也很有趣，推荐！",
 		"stars": 5
 	},
 	{
 		"name": "Hucci写代码",
-		"avatar": "https://i2.hdslb.com/bfs/face/5f0d883dd28cc609b6eedd561272951d9b969a60.jpg",
+		"avatar": "/images/blogger/hucci.webp",
 		"url": "https://space.bilibili.com/1318868?spm_id_from=333.1387.follow.user_card.click",
 		"description": "是一个python代码的教学博主，会分享一些有关python的小知识，声音也很好听，而且很容易让人听进去，喜欢python的可以尝试关注一下。",
 		"stars": 5
 	},
 	{
 		"name": "小V的奇幻旅程",
-		"avatar": "https://i1.hdslb.com/bfs/face/a97baab7e8777033b7cc6548f2dadd424defe9d0.jpg",
+		"avatar": "/images/blogger/v.webp",
 		"url": "https://space.bilibili.com/47423326?spm_id_from=333.1387.follow.user_card.click",
 		"description": "在up还是小透明的时候就开始看他的摄影旅行视频，慢慢看着他粉丝越来越多，视频也越拍约多，但是自从丽江之后就似乎变了一点点味道，不过还是很值得从他的视频看祖国的大好河山。",
+		"stars": 5
+	},
+	{
+		"name": "干饭三健客",
+		"avatar": "/images/blogger/three.webp",
+		"url": "https://space.bilibili.com/8680974?spm_id_from=333.1387.follow.user_card.click",
+		"description": "吃播up主，很真实，视频也很有趣，比吃不饱三战士强，下饭必看。",
+		"stars": 5
+	},
+	{
+		"name": "超carry的柴西",
+		"avatar": "/images/blogger/chaixi.webp",
+		"url": "https://space.bilibili.com/383578614?spm_id_from=333.1387.follow.user_card.click",
+		"description": "互联网脚替，以前是lol视频up主，视频做得很用心，值得一看。",
 		"stars": 5
 	},
 	{

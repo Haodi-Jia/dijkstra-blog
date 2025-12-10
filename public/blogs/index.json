@@ -8,7 +8,7 @@
     ],
     "date": "2025-1-14",
     "summary": "西安旅游的经历",
-    "cover": "/blogs/travel-xian/cover.jpg"
+    "cover": "/blogs/travel-xian/cover.webp"
   },
   {
     "slug": "travel-nanjing",
@@ -19,7 +19,7 @@
     ],
     "date": "2025-5-01",
     "summary": "南京旅游的经历",
-    "cover": "/blogs/travel-nanjing/cover.jpg"
+    "cover": "/blogs/travel-nanjing/cover.webp"
   },
   {
     "slug": "texture-format",
@@ -41,16 +41,5 @@
     "date": "2025-12-04",
     "summary": "neo4j数据库的一些常用指令",
     "cover": "/blogs/neo4j-1204/cover.webp"
-  },
-  {
-    "slug": "week-report-12-1",
-    "title": "周报 12-1",
-    "tags": [
-      "日常",
-      "生活"
-    ],
-    "date": "2025-12-07",
-    "summary": "周报 12-1",
-    "cover": "/blogs/week-report-12-1/cover.webp"
   }
 ]

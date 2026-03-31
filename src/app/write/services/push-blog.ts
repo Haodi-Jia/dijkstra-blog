@@ -1,6 +1,5 @@
 import { toBase64Utf8, getRef, createTree, createCommit, updateRef, createBlob, type TreeItem } from '@/lib/github-client'
 import { fileToBase64NoPrefix, hashFileSHA256 } from '@/lib/file-utils'
-import { prepareBlogsIndex } from '@/lib/blog-index'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
 import type { ImageItem } from '../types'
@@ -130,29 +129,6 @@ export async function pushBlog(params: PushBlogParams): Promise<void> {
 		mode: '100644',
 		type: 'blob',
 		sha: configBlob.sha
-	})
-
-	// prepare and create blob for blogs index
-	const indexJson = await prepareBlogsIndex(
-		token,
-		GITHUB_CONFIG.OWNER,
-		GITHUB_CONFIG.REPO,
-		{
-			slug: form.slug,
-			title: form.title,
-			tags: form.tags,
-			date: dateStr,
-			summary: form.summary,
-			cover: coverPath
-		},
-		GITHUB_CONFIG.BRANCH
-	)
-	const indexBlob = await createBlob(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, toBase64Utf8(indexJson), 'base64')
-	treeItems.push({
-		path: 'public/blogs/index.json',
-		mode: '100644',
-		type: 'blob',
-		sha: indexBlob.sha
 	})
 
 	// create tree

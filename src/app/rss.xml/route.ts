@@ -2,24 +2,14 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import siteContent from '@/config/site-content.json'
-import blogIndex from '@/../public/blogs/index.json'
+import type { BlogIndexItem } from '@/lib/blog-index'
+import { readBlogIndex } from '@/lib/blog-index.server'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.yysuni.com'
 const FEED_PATH = '/rss.xml'
 const SITE_ORIGIN = SITE_URL.replace(/\/$/, '')
 const FEED_URL = `${SITE_ORIGIN}${FEED_PATH}`
 const PUBLIC_DIR = path.join(process.cwd(), 'public')
-
-type BlogIndexItem = {
-	slug: string
-	title: string
-	tags?: string[]
-	date: string
-	summary?: string
-	cover?: string
-}
-
-const blogs = blogIndex as BlogIndexItem[]
 
 const escapeXml = (value: string): string =>
 	value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;')
@@ -97,9 +87,10 @@ const serializeItem = (item: BlogIndexItem): string => {
 export const dynamic = 'force-static'
 export const revalidate = false
 
-export function GET(): Response {
+export async function GET(): Promise<Response> {
 	const title = siteContent.meta?.title || '2025 Blog'
 	const description = siteContent.meta?.description || 'Latest updates from 2025 Blog'
+	const blogs = await readBlogIndex()
 
 	const items = blogs
 		.filter(item => item?.slug)

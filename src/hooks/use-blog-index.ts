@@ -1,13 +1,7 @@
 import useSWR from 'swr'
+import type { BlogIndexItem } from '@/lib/blog-index'
 
-export type BlogIndexItem = {
-	slug: string
-	title: string
-	tags: string[]
-	date: string
-	summary?: string
-	cover?: string
-}
+export type { BlogIndexItem } from '@/lib/blog-index'
 
 const fetcher = async (url: string) => {
 	const res = await fetch(url, { cache: 'no-store' })

@@ -1,8 +1,7 @@
 import { toast } from 'sonner'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
-import { createBlob, createCommit, createTree, getRef, listRepoFilesRecursive, toBase64Utf8, type TreeItem, updateRef } from '@/lib/github-client'
-import { removeBlogsFromIndex } from '@/lib/blog-index'
+import { createCommit, createTree, getRef, listRepoFilesRecursive, type TreeItem, updateRef } from '@/lib/github-client'
 
 export async function batchDeleteBlogs(slugs: string[]): Promise<void> {
 	const uniqueSlugs = Array.from(new Set(slugs.filter(Boolean)))
@@ -33,16 +32,6 @@ export async function batchDeleteBlogs(slugs: string[]): Promise<void> {
 		}
 	}
 
-	toast.info('正在更新索引...')
-	const indexJson = await removeBlogsFromIndex(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, uniqueSlugs, GITHUB_CONFIG.BRANCH)
-	const indexBlob = await createBlob(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, toBase64Utf8(indexJson), 'base64')
-	treeItems.push({
-		path: 'public/blogs/index.json',
-		mode: '100644',
-		type: 'blob',
-		sha: indexBlob.sha
-	})
-
 	toast.info('正在创建提交...')
 	const treeData = await createTree(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, treeItems, latestCommitSha)
 	const commitLabel = uniqueSlugs.length === 1 ? `删除文章: ${uniqueSlugs[0]}` : `批量删除文章: ${uniqueSlugs.join(', ')}`
@@ -53,4 +42,3 @@ export async function batchDeleteBlogs(slugs: string[]): Promise<void> {
 
 	toast.success('删除成功！请等待页面部署后刷新')
 }
-

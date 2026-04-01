@@ -1,0 +1,7 @@
+{
+  "title": "Qwen3.5 function calling能力强化学习训练",
+  "tags": ["强化学习"],
+  "date": "2026-04-01",
+  "summary": "使用verl框架，gspo算法，采用gpt-5-mini对采样路径进行打分作为reward，训练qwen3.5模型的function calling能力",
+  "cover": "/blogs/0401-verl/bytedance.webp"
+}

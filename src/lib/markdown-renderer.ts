@@ -1,5 +1,5 @@
 import { marked } from 'marked'
-import type { Tokens } from 'marked'
+import type { Token, Tokens, TokensList } from 'marked'
 import { codeToHtml } from 'shiki'
 
 export type TocItem = { id: string; text: string; level: number }
@@ -17,22 +17,45 @@ export function slugify(text: string): string {
 		.replace(/\s+/g, '-')
 }
 
-export async function renderMarkdown(markdown: string): Promise<MarkdownRenderResult> {
-	// Parse TOC from markdown
-	const toc: TocItem[] = []
-	for (const line of markdown.split('\n')) {
-		const m = /^(#{1,3})\s+(.+)$/.exec(line.trim())
-		if (m) {
-			const level = m[1].length
-			const text = m[2].trim()
-			const id = slugify(text)
-			toc.push({ id, text, level })
-		}
-	}
+function createHeadingIdFactory() {
+	const slugCounts = new Map<string, number>()
 
+	return (text: string): string => {
+		const base = slugify(text) || 'section'
+		const count = (slugCounts.get(base) ?? 0) + 1
+		slugCounts.set(base, count)
+
+		return count === 1 ? base : `${base}-${count}`
+	}
+}
+
+function collectHeadings(tokens: Token[] | TokensList): TocItem[] {
+	const headings: TocItem[] = []
+	const getHeadingId = createHeadingIdFactory()
+
+	marked.walkTokens(tokens, token => {
+		if (token.type !== 'heading') return
+
+		const heading = token as Tokens.Heading
+		const text = heading.text.trim()
+		if (!text) return
+
+		headings.push({
+			id: getHeadingId(text),
+			text,
+			level: heading.depth
+		})
+	})
+
+	return headings
+}
+
+export async function renderMarkdown(markdown: string): Promise<MarkdownRenderResult> {
 	// Pre-process code blocks with Shiki
 	const codeBlockMap = new Map<string, { html: string; original: string }>()
 	const tokens = marked.lexer(markdown)
+	const headings = collectHeadings(tokens)
+	const toc = headings.filter(item => item.level <= 3)
 
 	for (const token of tokens) {
 		if (token.type === 'code') {
@@ -57,9 +80,12 @@ export async function renderMarkdown(markdown: string): Promise<MarkdownRenderRe
 
 	// Render HTML with heading ids
 	const renderer = new marked.Renderer()
+	let headingIndex = 0
 
 	renderer.heading = (token: Tokens.Heading) => {
-		const id = slugify(token.text || '')
+		const fallbackId = slugify(token.text || '') || 'section'
+		const id = headings[headingIndex]?.id ?? fallbackId
+		headingIndex += 1
 		return `<h${token.depth} id="${id}">${token.text}</h${token.depth}>`
 	}
 
@@ -98,10 +124,7 @@ export async function renderMarkdown(markdown: string): Promise<MarkdownRenderRe
 		return `<li>${inner}</li>\n`
 	}
 
-	marked.use({
-		renderer
-	})
-	const html = (marked.parser(tokens) as string) || ''
+	const html = (marked.parser(tokens, { renderer }) as string) || ''
 
 	return { html, toc }
 }

@@ -26,8 +26,8 @@ git config --global user.email 396310954@qq.com  # 填写你的邮箱
 如果直接连接 GitHub 较慢或失败，可以配置代理：
 
 ```bash
-git config http.proxy http://127.0.0.1:7890
-git config https.proxy https://127.0.0.1:7890
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy https://127.0.0.1:7890
 ```
 
 > ⚠️ 注意：`7890` 端口需要根据你的代理工具（如 Clash）进行调整。

@@ -1,0 +1,7 @@
+{
+  "title": "学习Agent Harness工程",
+  "tags": ["Agent"],
+  "date": "2026-04-18",
+  "summary": "从prompt到context再到harness，本质是编写代码，为模型提供一个可操作的环境，作为harness工程师，真正的工作是实现工具、策划知识、管理上下文、控制权限、收集任务过程数据。",
+  "cover": "/blogs/260418-learnclaude/claude.png"
+}

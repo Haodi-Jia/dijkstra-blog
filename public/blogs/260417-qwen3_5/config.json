@@ -3,5 +3,5 @@
   "tags": ["LLM"],
   "date": "2026-04-17",
   "summary": "详细介绍Qwen-3.5模型的创新，包括Dense和MOE两类多模态模型。",
-  "cover": "/blogs/260417-qwen3_5/"
+  "cover": "/blogs/260402-functioncalling/qwen.png"
 }

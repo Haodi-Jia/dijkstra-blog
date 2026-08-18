@@ -28,5 +28,7 @@ export const icons = {
   mail: <Icon><rect height="15" rx="2" width="20" x="2" y="4.5" /><path d="m3 6 9 7 9-7" /></Icon>,
   wechat: <Icon><path d="M15.5 15.5c3 0 5.5-1.9 5.5-4.3S18.5 7 15.5 7 10 8.9 10 11.2c0 .8.3 1.6.9 2.2L10.3 16l2.6-1a7 7 0 0 0 2.6.5Z" /><path d="M10.5 4C6.4 4 3 6.6 3 9.8c0 1.2.5 2.3 1.3 3.2l-.8 3.3 3.5-1.4c.7.3 1.5.5 2.3.6" /><circle cx="13.7" cy="10.7" fill="currentColor" r=".6" /><circle cx="17.6" cy="10.7" fill="currentColor" r=".6" /></Icon>,
   clock: <Icon size={17}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></Icon>,
-  articles: <Icon size={27}><rect height="18" rx="1.5" width="16" x="4" y="3" /><path d="M8 7h4v4H8zM15 7h1M15 10h1M8 15h8M8 18h8" /></Icon>
+  articles: <Icon size={27}><rect height="18" rx="1.5" width="16" x="4" y="3" /><path d="M8 7h4v4H8zM15 7h1M15 10h1M8 15h8M8 18h8" /></Icon>,
+  archive: <Icon><path d="M4 7v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7M3 3h18v4H3zM9 11h6" /></Icon>,
+  cards: <Icon><rect height="7" rx="1" width="8" x="3" y="3" /><rect height="7" rx="1" width="8" x="13" y="3" /><rect height="7" rx="1" width="8" x="3" y="14" /><rect height="7" rx="1" width="8" x="13" y="14" /></Icon>
 } as const

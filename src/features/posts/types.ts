@@ -8,3 +8,5 @@ export type Post = {
   readingMinutes: number
   content: string
 }
+
+export type PostPreview = Omit<Post, 'content'>

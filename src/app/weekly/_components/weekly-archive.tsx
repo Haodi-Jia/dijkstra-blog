@@ -32,8 +32,8 @@ export function WeeklyArchive({ category }: { category: string }) {
       </nav>
 
       <div className="ml-[58px] max-w-[1040px] space-y-12 max-[1100px]:ml-[38px] max-[760px]:ml-0 max-[760px]:space-y-0">
-        {posts.length > 0 ? posts.map((post, index) => (
-          <PostCard eager={index < 2} key={post.slug} post={post} />
+        {posts.length > 0 ? posts.map((post) => (
+          <PostCard key={post.slug} post={post} />
         )) : (
           <div className="border-t py-16 text-center text-muted-foreground/70">该分类下暂时没有文章</div>
         )}

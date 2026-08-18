@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm'
 import { MobileNavigation } from '@/components/layout/mobile-navigation'
 import { Button } from '@/components/ui/button'
 import { icons } from '@/components/ui/icons'
+import { LazyImage } from '@/components/ui/lazy-image'
 import { formatPostDate } from '@/features/posts/format'
 import { readHeadings } from '@/features/posts/read-headings'
 import { readPost, readPosts } from '@/features/posts/read-posts'
@@ -64,10 +65,18 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               <time dateTime={post.date}>{formatPostDate(post.date)}</time>
             </div>
 
-            <img alt={post.title} className="mt-10 aspect-[2/1] w-full rounded-xl bg-muted object-cover shadow-[0_20px_55px_rgba(35,40,52,0.16)] dark:shadow-[0_20px_55px_rgba(0,0,0,0.42)] max-[760px]:mt-7 max-[760px]:aspect-[16/9] max-[760px]:shadow-[0_14px_36px_rgba(35,40,52,0.14)]" src={post.cover} />
+            <LazyImage alt={post.title} className="mt-10 aspect-[2/1] w-full rounded-xl bg-muted object-cover shadow-[0_20px_55px_rgba(35,40,52,0.16)] dark:shadow-[0_20px_55px_rgba(0,0,0,0.42)] max-[760px]:mt-7 max-[760px]:aspect-[16/9] max-[760px]:shadow-[0_14px_36px_rgba(35,40,52,0.14)]" src={post.cover} />
 
             <article className="article-content mt-14 max-[760px]:mt-10">
-              <ReactMarkdown rehypePlugins={[rehypeSlug]} remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+              <ReactMarkdown
+                components={{
+                  img: ({ alt, node: _node, src, ...props }) => typeof src === 'string' ? <LazyImage {...props} alt={alt ?? ''} src={src} /> : null
+                }}
+                rehypePlugins={[rehypeSlug]}
+                remarkPlugins={[remarkGfm]}
+              >
+                {post.content}
+              </ReactMarkdown>
             </article>
           </div>
         </section>

@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar"
 
+import { LazyImage } from "@/components/ui/lazy-image"
 import { cn } from "@/lib/utils"
 
 function Avatar({
@@ -25,9 +26,9 @@ function Avatar({
   )
 }
 
-function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {
+function AvatarImage({ className, ...props }: React.ComponentProps<typeof LazyImage>) {
   return (
-    <AvatarPrimitive.Image
+    <LazyImage
       data-slot="avatar-image"
       className={cn(
         "aspect-square size-full rounded-full object-cover",

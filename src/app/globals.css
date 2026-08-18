@@ -81,6 +81,17 @@
 }
 
 @layer components {
+  .article-title-link {
+    padding-bottom: 0.12em;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: 0 2px;
+    transition: background-size 300ms ease;
+  }
+  .article-title-link:hover,
+  .article-title-link:focus-visible { background-size: 100% 2px; }
+
   .article-content { @apply text-[17px] leading-[1.95] text-foreground/90; }
   .article-content h1 { @apply mt-14 mb-6 text-4xl leading-tight font-bold tracking-[-0.035em] text-foreground; }
   .article-content h2 { @apply mt-14 mb-6 scroll-mt-8 text-3xl leading-tight font-bold tracking-[-0.035em] text-foreground; }
@@ -94,6 +105,7 @@
   .article-content blockquote { @apply my-6 border-l-4 border-border pl-5 text-muted-foreground; }
   .article-content hr { @apply my-10 border-border; }
   .article-content img { @apply my-8 max-h-[680px] w-full rounded-xl object-contain; }
+  .article-content img[data-lazy-image]:not([src]) { @apply min-h-48 bg-muted; }
   .article-content pre { @apply my-7 overflow-x-auto rounded-xl bg-muted p-5 text-[14px] leading-7; }
   .article-content :not(pre) > code { @apply rounded-md bg-muted px-1.5 py-0.5 text-[0.9em]; }
   .article-content table { @apply my-7 w-full border-collapse overflow-hidden text-[15px]; }
@@ -105,5 +117,9 @@
     .article-content h1 { @apply mt-11 text-3xl; }
     .article-content h2 { @apply mt-11 text-[26px]; }
     .article-content h3 { @apply mt-8 text-[22px]; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .article-title-link { transition: none; }
   }
 }

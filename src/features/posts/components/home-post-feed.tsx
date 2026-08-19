@@ -3,11 +3,13 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
-import { FeaturedPost } from '@/components/blog/featured-post'
-import { PostCard } from '@/components/blog/post-card'
+import { PageContent } from '@/components/layout/page-content'
 import { PageHeader } from '@/components/layout/page-header'
 import { Button } from '@/components/ui/button'
 import { icons } from '@/components/ui/icons'
+import { content } from '@/content'
+import { FeaturedPost } from '@/features/posts/components/featured-post'
+import { PostCard } from '@/features/posts/components/post-card'
 import { formatPostDate } from '@/features/posts/format'
 import type { PostPreview } from '@/features/posts/types'
 
@@ -19,7 +21,7 @@ function ArchiveView({ posts }: { posts: PostPreview[] }) {
   }, new Map<string, PostPreview[]>())
 
   return (
-    <div className="ml-[58px] max-w-[1040px] pt-12 max-[1100px]:ml-[38px] max-[760px]:ml-0 max-[760px]:pt-10">
+    <PageContent className="pt-12 max-[760px]:pt-10">
       {[...groups].map(([year, yearPosts]) => (
         <section className="mb-12 last:mb-0 max-[760px]:mb-10" key={year}>
           <h2 className="mb-6 text-lg font-normal text-muted-foreground/70 max-[760px]:mb-5 max-[760px]:text-base">{year}</h2>
@@ -35,14 +37,14 @@ function ArchiveView({ posts }: { posts: PostPreview[] }) {
           </div>
         </section>
       ))}
-    </div>
+    </PageContent>
   )
 }
 
 export function HomePostFeed({ posts }: { posts: PostPreview[] }) {
   const [archived, setArchived] = useState(false)
   const [latest, ...rest] = posts
-  const label = archived ? '切换到卡片视图' : '切换到归档视图'
+  const label = archived ? content.home.cardViewLabel : content.home.archiveViewLabel
 
   return (
     <>
@@ -60,7 +62,7 @@ export function HomePostFeed({ posts }: { posts: PostPreview[] }) {
             {archived ? icons.cards : icons.archive}
           </Button>
         )}
-        title="最新文章"
+        title={content.home.title}
       />
 
       {archived ? (
@@ -68,9 +70,9 @@ export function HomePostFeed({ posts }: { posts: PostPreview[] }) {
       ) : (
         <>
           <FeaturedPost post={latest} />
-          <div className="ml-[58px] max-w-[1040px] space-y-12 max-[1100px]:ml-[38px] max-[760px]:ml-0 max-[760px]:space-y-0">
+          <PageContent className="space-y-12 max-[760px]:space-y-0">
             {rest.map((post) => <PostCard key={post.slug} post={post} />)}
-          </div>
+          </PageContent>
         </>
       )}
     </>

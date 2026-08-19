@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation'
 
 import { readCategories } from '@/features/posts/read-posts'
-
-import { WeeklyArchive, weeklyCategory } from '../_components/weekly-archive'
+import { WeeklyArchive, weeklyCategory } from '@/features/posts/components/weekly-archive'
 
 export function generateStaticParams() {
   return readCategories().map((category) => ({ category }))

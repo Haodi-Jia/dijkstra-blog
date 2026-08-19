@@ -27,6 +27,7 @@ export const icons = {
   github: <Icon><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.5 5.5 0 0 0 19.3 3 5.2 5.2 0 0 0 19.1.5S18 0 15 2a15.4 15.4 0 0 0-8 0C4-.1 2.9.5 2.9.5A5.2 5.2 0 0 0 2.7 3a5.5 5.5 0 0 0-1.5 4.5c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 7 18v4M7 19c-3 .9-3-1.5-4-2" /></Icon>,
   mail: <Icon><rect height="15" rx="2" width="20" x="2" y="4.5" /><path d="m3 6 9 7 9-7" /></Icon>,
   wechat: <Icon><path d="M15.5 15.5c3 0 5.5-1.9 5.5-4.3S18.5 7 15.5 7 10 8.9 10 11.2c0 .8.3 1.6.9 2.2L10.3 16l2.6-1a7 7 0 0 0 2.6.5Z" /><path d="M10.5 4C6.4 4 3 6.6 3 9.8c0 1.2.5 2.3 1.3 3.2l-.8 3.3 3.5-1.4c.7.3 1.5.5 2.3.6" /><circle cx="13.7" cy="10.7" fill="currentColor" r=".6" /><circle cx="17.6" cy="10.7" fill="currentColor" r=".6" /></Icon>,
+  check: <Icon><path d="m5 12 4 4L19 6" /></Icon>,
   clock: <Icon size={17}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></Icon>,
   articles: <Icon size={27}><rect height="18" rx="1.5" width="16" x="4" y="3" /><path d="M8 7h4v4H8zM15 7h1M15 10h1M8 15h8M8 18h8" /></Icon>,
   archive: <Icon><path d="M4 7v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7M3 3h18v4H3zM9 11h6" /></Icon>,

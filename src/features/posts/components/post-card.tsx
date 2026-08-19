@@ -4,10 +4,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardTitle } from '@/com
 import { icons } from '@/components/ui/icons'
 import { LazyImage } from '@/components/ui/lazy-image'
 import { Separator } from '@/components/ui/separator'
+import { content } from '@/content'
 import { formatPostDate } from '@/features/posts/format'
 import type { PostPreview } from '@/features/posts/types'
 
 export function PostCard({ post }: { post: PostPreview }) {
+  const { minutes, readingTimePrefix } = content.posts.labels
+
   return (
     <Card className="group relative grid grid-cols-[225px_minmax(0,1fr)] gap-8 rounded-none bg-transparent py-0 ring-0 max-[1100px]:grid-cols-[205px_minmax(0,1fr)] max-[1100px]:gap-7 max-[760px]:block max-[760px]:py-12 max-[760px]:pb-[46px]">
       <Separator className="absolute inset-x-0 top-0" />
@@ -20,7 +23,7 @@ export function PostCard({ post }: { post: PostPreview }) {
         <CardFooter className="mt-auto border-0 bg-transparent px-0 pt-[15px] pb-0 max-[760px]:pt-5">
           <div className="flex flex-wrap items-center gap-[17px] text-[13px] text-muted-foreground/70 max-[760px]:gap-3.5 max-[760px]:text-xs">
             <Link className="transition-colors hover:text-foreground" href={`/weekly/${encodeURIComponent(post.tags[0])}`}>{post.tags[0]}</Link>
-            <span className="inline-flex items-center gap-[5px]">{icons.clock} 约 {post.readingMinutes} 分钟</span>
+            <span className="inline-flex items-center gap-[5px]">{icons.clock} {readingTimePrefix} {post.readingMinutes} {minutes}</span>
             <time>{formatPostDate(post.date)}</time>
           </div>
         </CardFooter>

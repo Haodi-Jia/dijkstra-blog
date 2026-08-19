@@ -1,12 +1,14 @@
 import Link from 'next/link'
 
-import { PostCard } from '@/components/blog/post-card'
+import { PageContent } from '@/components/layout/page-content'
 import { PageHeader } from '@/components/layout/page-header'
 import { PageShell } from '@/components/layout/page-shell'
+import { content } from '@/content'
+import { PostCard } from '@/features/posts/components/post-card'
 import { readCategories, readPosts } from '@/features/posts/read-posts'
 import { cn } from '@/lib/utils'
 
-export const weeklyCategory = '三七周刊'
+export const weeklyCategory = content.weekly.title
 
 export function WeeklyArchive({ category }: { category: string }) {
   const categories = [weeklyCategory, ...readCategories().filter((item) => item !== weeklyCategory)]
@@ -16,7 +18,7 @@ export function WeeklyArchive({ category }: { category: string }) {
     <PageShell activeHref="/weekly">
       <PageHeader title={category} />
 
-      <nav aria-label="文章分类" className="ml-[58px] flex max-w-[1040px] flex-wrap gap-x-3 gap-y-2 py-12 max-[1100px]:ml-[38px] max-[760px]:ml-0 max-[760px]:py-8">
+      <PageContent as="nav" aria-label={content.posts.labels.category} className="flex flex-wrap gap-x-3 gap-y-2 py-12 max-[760px]:py-8">
         {categories.map((item) => (
           <Link
             className={cn(
@@ -29,15 +31,15 @@ export function WeeklyArchive({ category }: { category: string }) {
             {item}
           </Link>
         ))}
-      </nav>
+      </PageContent>
 
-      <div className="ml-[58px] max-w-[1040px] space-y-12 max-[1100px]:ml-[38px] max-[760px]:ml-0 max-[760px]:space-y-0">
+      <PageContent className="space-y-12 max-[760px]:space-y-0">
         {posts.length > 0 ? posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         )) : (
-          <div className="border-t py-16 text-center text-muted-foreground/70">该分类下暂时没有文章</div>
+          <div className="border-t py-16 text-center text-muted-foreground/70">{content.weekly.empty}</div>
         )}
-      </div>
+      </PageContent>
     </PageShell>
   )
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { icons } from '@/components/ui/icons'
+import { content } from '@/content'
 import { cn } from '@/lib/utils'
 
 export function ThemeToggle({ className }: { className?: string }) {
@@ -20,13 +21,15 @@ export function ThemeToggle({ className }: { className?: string }) {
     setDark(nextDark)
   }
 
+  const label = dark ? content.site.labels.lightTheme : content.site.labels.darkTheme
+
   return (
     <Button
-      aria-label={dark ? '切换浅色模式' : '切换深色模式'}
+      aria-label={label}
       className={cn('text-muted-foreground', className)}
       onClick={toggleTheme}
       size="icon"
-      title={dark ? '切换浅色模式' : '切换深色模式'}
+      title={label}
       variant="ghost"
     >
       {dark ? icons.sun : icons.moon}

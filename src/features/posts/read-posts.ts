@@ -3,14 +3,14 @@ import { join } from 'node:path'
 
 import type { Post } from './types'
 
-const blogDirectory = join(process.cwd(), 'public', 'blogs')
+const postsDirectory = join(process.cwd(), 'public', 'blogs')
 
 function readField(frontmatter: string, name: string) {
   return frontmatter.match(new RegExp(`^${name}:\\s*["']?(.*?)["']?$`, 'm'))?.[1] ?? ''
 }
 
 function parsePost(fileName: string): Post {
-  const source = readFileSync(join(blogDirectory, fileName), 'utf8')
+  const source = readFileSync(join(postsDirectory, fileName), 'utf8')
   const frontmatter = source.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? ''
   const tagValue = readField(frontmatter, 'tags')
   const content = source.replace(/^---[\s\S]*?---/, '').trim()
@@ -32,7 +32,7 @@ export function readPost(slug: string) {
 }
 
 export function readPosts() {
-  return readdirSync(blogDirectory)
+  return readdirSync(postsDirectory)
     .filter((fileName) => fileName.endsWith('.md'))
     .map(parsePost)
     .sort((a, b) => b.date.localeCompare(a.date))

@@ -1,5 +1,5 @@
-import { HomePostFeed } from '@/components/blog/home-post-feed'
 import { PageShell } from '@/components/layout/page-shell'
+import { HomePostFeed } from '@/features/posts/components/home-post-feed'
 import { readPosts } from '@/features/posts/read-posts'
 
 export default function Home() {

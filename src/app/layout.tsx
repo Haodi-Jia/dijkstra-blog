@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
+import { i18nConfig } from '@/config/i18n'
+import { siteConfig } from '@/config/site'
+import { content } from '@/content'
+
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Dijkstra · 个人博客',
-  description: '科技向善',
+  title: {
+    default: `${siteConfig.name} · ${content.site.metadata.title}`,
+    template: `%s · ${siteConfig.name}`
+  },
+  description: content.site.metadata.description,
   icons: {
     icon: '/icon.jpg',
     apple: '/icon.jpg'
@@ -14,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="zh-CN" suppressHydrationWarning>
+    <html lang={i18nConfig.defaultLocale} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: `const theme=localStorage.getItem('theme');const dark=theme==='dark'||(theme===null&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',dark)` }} />
       </head>

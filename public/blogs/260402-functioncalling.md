@@ -3,7 +3,7 @@ title: "Qwen3.5 function calling能力强化学习训练"
 tags: ["强化学习"]
 date: "2026-04-02"
 summary: "使用verl框架，gspo算法，采用gpt-5-mini对采样路径进行打分作为reward，训练qwen3.5模型的function calling能力"
-cover: "https://image.dijkstra-jhd.cn/blog/260417-qwen3_5--qwen.webp"
+cover: "/images/260417-qwen3_5--qwen.webp"
 ---
 
 ## 1. 项目简介

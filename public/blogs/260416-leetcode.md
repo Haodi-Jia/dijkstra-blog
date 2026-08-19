@@ -3,7 +3,7 @@ title: "leetcode hot100 刷题感想与笔记"
 tags: ["秋招"]
 date: "2026-04-16"
 summary: "历时一周时间，速刷了一遍leetcode hot100，记录了一些自己的题目解答思路，以及标准答案是如何实现的（主要参考python的灵茶）"
-cover: "https://image.dijkstra-jhd.cn/blog/260416-leetcode--leetcode.webp"
+cover: "/images/260416-leetcode--leetcode.webp"
 ---
 
 # LeetCode Hot100 复习索引

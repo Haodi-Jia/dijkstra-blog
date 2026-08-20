@@ -112,6 +112,17 @@
   .article-content th { @apply border bg-muted px-4 py-2 text-left font-semibold; }
   .article-content td { @apply border px-4 py-2 align-top; }
 
+  .comment-content p { @apply my-2; }
+  .comment-content a { @apply text-blue-600 underline-offset-4 hover:underline dark:text-blue-400; }
+  .comment-content blockquote { @apply my-3 border-l-2 border-border pl-3 text-muted-foreground; }
+  .comment-content pre { @apply my-3 overflow-x-auto rounded-lg bg-[#23272f] p-4 text-sm leading-6 text-slate-100; }
+  .comment-content :not(pre) > code { @apply rounded bg-muted px-1.5 py-0.5 text-[0.9em]; }
+  .comment-content ul { @apply my-2 ml-5 list-disc; }
+  .comment-content ol { @apply my-2 ml-5 list-decimal; }
+  .comment-editor p.is-editor-empty:first-child::before { content: attr(data-placeholder); @apply pointer-events-none float-left h-0 text-muted-foreground/55; }
+  .comment-editor > :first-child { margin-top: 0; }
+  .comment-editor > :last-child { margin-bottom: 0; }
+
   @media (max-width: 760px) {
     .article-content { @apply text-base leading-[1.85]; }
     .article-content h1 { @apply mt-11 text-3xl; }

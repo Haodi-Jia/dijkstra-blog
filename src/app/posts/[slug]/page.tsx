@@ -9,6 +9,7 @@ import { LazyImage } from '@/components/ui/lazy-image'
 import { MarkdownContent } from '@/components/ui/markdown-content'
 import { content } from '@/content'
 import { ArticleActions } from '@/features/posts/components/article-actions'
+import { ArticleEngagement } from '@/features/posts/components/article-engagement'
 import { ArticleSidebar } from '@/features/posts/components/article-sidebar'
 import { formatPostDate } from '@/features/posts/format'
 import { readHeadings } from '@/features/posts/read-headings'
@@ -42,6 +43,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   if (!post) notFound()
 
   const headings = readHeadings(post.content)
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
+  if (!turnstileSiteKey) {
+    throw new Error('NEXT_PUBLIC_TURNSTILE_SITE_KEY is not configured')
+  }
 
   return (
     <>
@@ -68,6 +74,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <article className="article-content mt-14 max-[760px]:mt-10">
               <MarkdownContent source={post.content} />
             </article>
+
+            <ArticleEngagement postSlug={post.slug} turnstileSiteKey={turnstileSiteKey} />
           </div>
         </section>
       </main>

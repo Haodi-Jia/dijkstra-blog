@@ -10,7 +10,7 @@ type PageContentProps = HTMLAttributes<HTMLElement> & {
 export function PageContent({ as: Component = 'div', children, className, ...props }: PageContentProps) {
   return (
     <Component
-      className={cn('ml-[58px] max-w-[1040px] max-[1100px]:ml-[38px] max-[760px]:ml-0', className)}
+      className={cn('mx-[58px] max-w-[1040px] max-[1100px]:mx-[38px] max-[760px]:mx-0', className)}
       {...props}
     >
       {children}
